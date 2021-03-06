@@ -1,15 +1,17 @@
 # -*- coding: utf-8 -*-
-
+from dotenv import load_dotenv
 import requests
 import json
 import math
 import datetime
 import openpyxl
 import pprint
+import os
 
+load_dotenv()
 SLACK_URL = "https://slack.com/api/conversations.history"
-TOKEN = "xoxp-1829892296706-1842519970865-1826870140725-367558dc5f37972ed861759b6800be32"
-SLACK_CHANNEL_ID = 'C01QL1S4952'
+TOKEN = os.getenv('SLACK_TOKEN')
+SLACK_CHANNEL_ID = os.getenv('SLACK_CHANNEL_ID')
 headers = {"Authorization" : "Bearer "+ TOKEN}
 def fetch_text():
     payload = {
